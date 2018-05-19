@@ -12,5 +12,5 @@ var text_upload =  multiPart({uploadDir:'./uploads/text'});
 //
 
 api.get('/blackList', blackListController.test);
-
+api.post('/save-in-blacklist', blackListController.saveInBlackList);
 module.exports = api;

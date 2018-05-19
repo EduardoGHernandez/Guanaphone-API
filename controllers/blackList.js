@@ -41,5 +41,6 @@ function saveInBlackList(req, res){
 }
 
 module.exports = {
-  test
+  test,
+  saveInBlackList
 }
