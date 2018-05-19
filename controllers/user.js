@@ -46,8 +46,17 @@ function saveInBlackList(req, res){
 	});
 }
 
+function getFromBlackList(req, res) {
+	var params = req.body;
+	BlackList.findOne({
+		number: params.number;
+	}), (err) => {
+		message: 'error'
+	}
+}
+
 module.exports = {
-	home,
+	getFromBlackList,
 	saveInBlackList,
 }
 
