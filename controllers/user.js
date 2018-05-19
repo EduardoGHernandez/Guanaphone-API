@@ -47,9 +47,9 @@ function saveInBlackList(req, res){
 }
 
 function getFromBlackList(req, res) {
-	var params = req.head;
+	var params = req.number;
 	BlackList.findOne({
-		number: params.number;
+		number: params;
 	}), (err) => {
 		message: 'error'
 	}
