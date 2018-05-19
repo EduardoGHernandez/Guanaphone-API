@@ -44,11 +44,11 @@ function getFromBlackList(req, res) {
 		if(blackList) {
 			result = blackList.type;
 		}
-	});
+	}
 	res.status(200).send({
 		message: result;
-	});
-	
+	})
+	);
 }
 
 module.exports = {
