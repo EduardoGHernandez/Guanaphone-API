@@ -49,7 +49,7 @@ function saveInBlackList(req, res){
 function getFromBlackList(req, res) {
 	
 	res.status(200).send({
-		message: 'ok';
+		message: req.params.number;
 	});
 	
 }
