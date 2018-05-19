@@ -9,6 +9,5 @@ var multiPart = require('connect-multiparty');
 var md_upload =  multiPart({uploadDir:'./uploads/users'});
 
 api.get('/dangerous',apiController.home)
-//api.get('/home', apiController.home);
 
 module.exports = api;

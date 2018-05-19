@@ -26,11 +26,17 @@ function test(req, res){
 	});
 }
 
+function audioToText(audio) {
+	var text = "text successfully"
+	return text;
+}
+
+
 //Registro
-function saveUser(req, res){
+function saveInBlackList(req, res){
 	var params = req.body;
-	var user = new User();
-	if(params.name && params.surname && params.nickname &&
+	var blackList = new BlackList();
+	/*if(params.name && params.surname && params.nickname &&
 	   params.email && params.password){
 		user.name = params.name;
 		user.surname = params.surname;
@@ -38,39 +44,14 @@ function saveUser(req, res){
 		user.email = params.email
 		user.role = 'ROLE_USER';
 		user.image = null;
-
-		//Control de usuarios duplicados
-		console.log("Vamos a ver si hay un duplicado");
-		User.find({$or:[
-			{email: user.email.toLowerCase()},
-			{nickname: user.nickname.toLowerCase()}
- 		]}).exec((err, users) => {
-			if(err) return res.status(500).send({message: 'Error en la peticion de ususario'});
-			if(users && users.length >= 1){
-				console.log("El usuario ya existe; ");
-				return res.status(200).send({message: 'Usuario ya existente'});
-			}else{
-				console.log("Al parecer no hay...");
-				//Cifrar contraseña & Guardar usuario
-				bcrypt.hash(params.password, null, null, (err, hash) =>{
-					user.password = hash;
-					console.log("Registrando...");
-					user.save((err, userStored) => {
-						if(err) return res.status(500).send({message: 'Error al guardar usuario'});
-						if(userStored){
-							console.log("Espera...");
-							return res.status(200).send({user : userStored});
-							console.log("...listo");
-						}else{
-							return res.status(404).send({message: 'No se ha registrado al usuario'});
-						}
-					});
-				});
-		}});
-	}else{
-		res.status(200).send({
-			message: 'Envia todos los campos necesarios'
-		});
+*/
+	blackList.number = params.number;
+	blackList.audio = params.audio;
+	blackList.text = audioToText(params.audio);
+	blackList.type = params.type;
+	res.status(200).send({
+		message: 'Success'
+	});
 	}
 }
 
