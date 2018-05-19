@@ -27,7 +27,7 @@ app.use('/api', blackList_routes);
 
 app.get('/', (req,res)=>{
 	res.status(200).send({
-		message: 'Hola mundo'
+		message: 'Las Lolis #GuanaHacks'
 	});
 });
 
