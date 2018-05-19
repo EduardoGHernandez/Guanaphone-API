@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 //Cargar rutas
-var api_routes = require('./routes/api');
+var blackList_routes = require('./routes/blackList');
 
 //Middlewares
 app.use(bodyParser.urlencoded({extended : false}));
@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 });
 
 //Rutas
-app.use('/api', api_routes);
+app.use('/api', blackList_routes);
 
 app.get('/', (req,res)=>{
 	res.status(200).send({
@@ -33,4 +33,3 @@ app.get('/', (req,res)=>{
 
 //Exportar
 module.exports = app;
-
