@@ -53,7 +53,7 @@ function getFromBlackList(req, res) {
 	res.status(200).send({
 		message: req.query.number;
 	});
-	
+	console.log()
 	
 }
 
