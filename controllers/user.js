@@ -11,6 +11,9 @@ var jwt = require('../services/jwt');
 var mongoosePaginate = require('mongoose-pagination');
 var fs = require('fs');
 var path = require('path')
+var url = require('url');
+var url_parts = url.parse(request.url, true);
+var query = url_parts.query;
 
 //Metodos de prueba
 function home(req, res){
@@ -48,8 +51,9 @@ function saveInBlackList(req, res){
 
 function getFromBlackList(req, res) {
 	res.status(200).send({
-		message: 'done'
+		message: req.query.number;
 	});
+	
 	
 }
 
