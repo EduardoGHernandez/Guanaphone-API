@@ -38,12 +38,12 @@ function saveInBlackList(req, res){
 function getFromBlackList(req, res) {
 	BlackList.findOne({
 		number: req.params.number
-	})(err, blackList) => {
+	}, (err, blackList) => {
 		if(err) return res.status(500).send({message : 'Error en la peticion'});
 		if(blackList) {
 			console.log(blackList.type)
 		}
-	}
+	});
 	res.status(200).send({
 		message: req.params.number
 	});
