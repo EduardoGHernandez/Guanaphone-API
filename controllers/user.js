@@ -47,8 +47,10 @@ function saveInBlackList(req, res){
 }
 
 function getFromBlackList(req, res) {
-	var params = req.number;
-	console.log(req.number);
+	res.status(200).send({
+		message: req.number;
+	});
+	
 }
 
 module.exports = {
