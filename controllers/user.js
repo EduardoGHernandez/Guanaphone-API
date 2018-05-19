@@ -47,7 +47,7 @@ function saveInBlackList(req, res){
 */
 	blackList.number = params.number;
 	blackList.audio = params.audio;
-	blackList.text = audioToText(params.audio);
+	//blackList.text = audioToText(params.audio);
 	blackList.type = params.type;
 	res.status(200).send({
 		message: 'Success'
