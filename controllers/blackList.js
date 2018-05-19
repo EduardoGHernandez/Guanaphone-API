@@ -24,10 +24,10 @@ function saveInBlackList(req, res){
   var params = req.body;
   var blackList = new BlackList();
   console.log(req.body);
-  if(!params.phone || !params.type || !params.level || !params.category)
+  if(!params.phone || !params.numbReports || !params.level || !params.category)
     return res.status(500).send({message: 'Error al guardar en blacklist: Faltan parametros'});
   blackList.phone = params.phone;
-  blackList.type = params.type;
+  blackList.numbReports = params.numbReports;
   blackList.level = params.level;
   blackList.category = params.category;
   console.log("Guardando: " + blackList.phone);

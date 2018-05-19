@@ -7,6 +7,7 @@ var app = express();
 
 //Cargar rutas
 var blackList_routes = require('./routes/blackList');
+var reportedPhones_routes = require('./routes/reportedPhones')
 
 //Middlewares
 app.use(bodyParser.urlencoded({extended : false}));
@@ -24,6 +25,7 @@ app.use((req, res, next) => {
 
 //Rutas
 app.use('/api', blackList_routes);
+app.use('/api', reportedPhones_routes)
 
 app.get('/', (req,res)=>{
 	res.status(200).send({

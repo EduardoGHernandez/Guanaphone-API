@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 var blackListSchema = Schema({
 	phone: String,
-	type: String,
+	numbReports: String,
 	level:String,
 	category: String
 });
