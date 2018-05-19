@@ -4,10 +4,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var blackListSchema = Schema({
-	number: String,
-	audio: String,
-	text: String,
+	phone: String,
 	type: String,
+	level:String,
+	category: String
 });
 
 module.exports = mongoose.model('blackList', blackListSchema);
