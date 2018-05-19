@@ -23,7 +23,9 @@ function test(req, res){
 function saveInBlackList(req, res){
   var params = req.body;
   var blackList = new BlackList();
-  if(!params.phone || !params.type || !params.level || !params.category) return res.status(500).send({message: 'Error al guardar en blacklist'}); 
+  console.log(req.body);
+  if(!params.phone || !params.type || !params.level || !params.category)
+    return res.status(500).send({message: 'Error al guardar en blacklist: Faltan parametros'});
   blackList.phone = params.phone;
   blackList.type = params.type;
   blackList.level = params.level;
@@ -41,7 +43,21 @@ function saveInBlackList(req, res){
 					});
 }
 
+function isInBlackList(req, res){
+	var searched = req.params.phone;
+	if(!searched)
+		return res.status(500).send({message: 'Faltan parametros en la peticion'});
+	BlackList.findOne({'phone':searched},(err, founded) => {
+		if(err)
+			return res.status(500).send({message:'Error en la peticion'});
+		if(!founded) return res.status(404).send({message: 'El numero no existe'});
+		console.log(founded);
+		return res.status(200).send({founded});
+	})
+}
+
 module.exports = {
   test,
-  saveInBlackList
+  saveInBlackList,
+	isInBlackList
 }
