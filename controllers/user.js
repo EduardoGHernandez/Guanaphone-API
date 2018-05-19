@@ -13,18 +13,7 @@ var fs = require('fs');
 var path = require('path')
 
 //Metodos de prueba
-function home(req, res){
-	res.status(200).send({
-		message: 'User home test'
-	});
-}
-/*
-function audioToText(audio) {
-	var text = "text successfully"
-	return text;
-}
-*/
-//Registro
+
 function saveInBlackList(req, res){
 	var params = req.body;
 	var blackList = new BlackList();
@@ -47,7 +36,14 @@ function saveInBlackList(req, res){
 }
 
 function getFromBlackList(req, res) {
-	
+	BlackList.findOne({
+		number: req.params.number
+	})(err, blackList) => {
+		if(err) return res.status(500).send({message : 'Error en la peticion'});
+		if(blackList) {
+			console.log(blackList.type)
+		}
+	}
 	res.status(200).send({
 		message: req.params.number
 	});
