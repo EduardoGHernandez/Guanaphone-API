@@ -18,20 +18,12 @@ function home(req, res){
 		message: 'User home test'
 	});
 }
-
-function test(req, res){
-	console.log(req.body);
-	res.status(200).send({
-		message: 'Second test'
-	});
-}
-
+/*
 function audioToText(audio) {
 	var text = "text successfully"
 	return text;
 }
-
-
+*/
 //Registro
 function saveInBlackList(req, res){
 	var params = req.body;
@@ -55,6 +47,12 @@ function saveInBlackList(req, res){
 	}
 }
 
+module.exports = {
+	home,
+	saveInBlackList,
+}
+
+/*
 
 //Inicio de sesion
 function loginUser(req, res){
@@ -282,16 +280,4 @@ async function getCountFollows(userId){
 		publications: publications
 	}
 }
-
-module.exports = {
-	home,
-	test,
-	saveUser,
-	loginUser,
-	getUser,
-	getUsers,
-	updateUser,
-	uploadImage,
-	getImageUser,
-	getCounters
-}
+*/
