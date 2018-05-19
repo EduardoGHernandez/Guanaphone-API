@@ -1,11 +1,11 @@
 'use strict'
 
-//Cargar modelo
+//Cargar modelos
 
-var User = require('../models/user');
-var Follow = require('../models/follow');
-var Publication = require('../models/publication');
+var BlackList = require('../models/blackList');
+var Dangerous = require('../models/dangerous');
 
+//
 var bcrypt = require('bcrypt-nodejs');
 var jwt = require('../services/jwt');
 var mongoosePaginate = require('mongoose-pagination');
